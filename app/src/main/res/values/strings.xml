@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AsyncTaskStudy</string>
+    <string name="btn_start">Start_Task!</string>
+    <string name="btn_stop">Stop_Task!</string>
+</resources>
