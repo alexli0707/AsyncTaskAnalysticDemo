@@ -16,6 +16,7 @@ public class TimeConsumingTask extends AsyncTask<Integer, Integer, Boolean> {
     private static String TAG = "TimeConsumingTask";
     private WeakReference<Handler> mHandler;
     public static final String TAG_RESULT = "result";
+    private static volatile int sExecutionCount ;
 
     public TimeConsumingTask(Handler handler) {
         mHandler = new WeakReference<Handler>(handler);
@@ -29,6 +30,7 @@ public class TimeConsumingTask extends AsyncTask<Integer, Integer, Boolean> {
 
     @Override
     protected Boolean doInBackground(Integer... params) {
+        Log.d(TAG,"execute count is :"+ ++sExecutionCount);
         for (Integer num : params) {
             try {
                 Thread.sleep(num * 1000);
